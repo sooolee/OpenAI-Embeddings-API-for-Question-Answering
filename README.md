@@ -8,6 +8,9 @@ Compared to finetuning LLMs on question-answering (such as https://huggingface.c
 * "text-embedding-ada-002" is the embedding model that converts each DataFrame row into an embedding. 
 * "text-davinci-003" is the completion model that will generate answers based on the the best matches (cosign similarities) between a question and context. 
 
+## Demo
+🚧 The demo is on the way! 🚧
+
 ## Model Development Process
 1. Convert a pdf file into a DataFrame that the embedding model can process. I broke down the entire document into sub-texts, where a good chunk of overlapping between neighboring sub-texts is captured in order not to lose the infomation around the breaking point. 
 - Note: The embedding model can take up to 8192 tokens in length per single request. This means each sub-text can take up to this size. My model has much smaller size of sub-texts. 
@@ -16,5 +19,3 @@ Compared to finetuning LLMs on question-answering (such as https://huggingface.c
 4. Construct prompt with sections with highest similarities: The completion model needs a specific instruction for each question along with the context. Instruction also includes the instruction in case of no match. Context means the sub-texts with highest similarities.
 5. Use the completion model to get the answer! 
 
-## Demo
-🚧 The demo is on the way! 🚧
